@@ -40,3 +40,18 @@ document.getElementById('logoutBtn').addEventListener('click', function() {
     alert('Logging out...'); // Replace with actual logout handling
     // window.location.href = 'login.html'; // Uncomment and replace with your login page URL
 });
+
+// JavaScript to handle the location sharing toggle
+document.addEventListener('DOMContentLoaded', function() {
+    const locationSharingToggle = document.getElementById('locationSharing');
+
+    locationSharingToggle.addEventListener('change', function() {
+        if (this.checked) {
+            console.log('Location sharing is ON');
+            // Add your logic to enable location sharing
+        } else {
+            console.log('Location sharing is OFF');
+            // Add your logic to disable location sharing
+        }
+    });
+});
