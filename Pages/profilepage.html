@@ -20,18 +20,20 @@
             <p id="year"> Senior</p>
             <p id="age"> Age: 23 </p>
             <div class="toggle-switch">
-                <label>
+                <span>Location Sharing</span>
+                <label class="toggle-button">
                     <input type="checkbox" id="locationSharing">
                     <span class="toggle-slider"></span>
                 </label>
-                <span>Location Sharing</span>
             </div>
         </div>
-        <div class="profile-actions">
-            <button id="editProfileBtn">Edit Profile</button>
-            <button id="logoutBtn">Log Out</button>
+        <button id="getLocationBtn" style="display: none;">Get Location</button>
+        <p id="locationDisplay"></p>
         </div>
-    </div>
+        <div class="profile-actions">
+            <button class="action-button">Edit Profile</button>
+            <button class="action-button">Log Out</button>
+        </div>
     <script src="../Java/script.js"></script>
 </body>
 </html>
