@@ -1,4 +1,4 @@
-/*-----------------page 1---------------*/
+/*-----------------register Page---------------*/
     document.getElementById('registerBtn').addEventListener('click', function() {
         // Redirect to registration page
         window.location.href = 'register.html'; // Change to your registration page URL
@@ -27,6 +27,7 @@
         // Redirect to a different page or perform login action
         // window.location.href = 'home.html'; // Uncomment and replace with your home page URL
     });
+    
 
 /*----------profile page-----------*/
 document.getElementById('editProfileBtn').addEventListener('click', function() {
