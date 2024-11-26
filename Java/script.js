@@ -40,18 +40,47 @@ document.getElementById('logoutBtn').addEventListener('click', function() {
     alert('Logging out...'); // Replace with actual logout handling
     // window.location.href = 'login.html'; // Uncomment and replace with your login page URL
 });
-
-// JavaScript to handle the location sharing toggle
+// JavaScript to handle location sharing
 document.addEventListener('DOMContentLoaded', function() {
     const locationSharingToggle = document.getElementById('locationSharing');
+    const getLocationBtn = document.getElementById('getLocationBtn');
+    const locationDisplay = document.getElementById('locationDisplay');
 
+    // Function to get the user's location
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition, showError);
+        } else {
+            locationDisplay.textContent = "Geolocation is not supported by this browser.";
+        }
+    }
+
+    // Function to display the location
+    function showPosition(position) {
+        const lat = position.coords.latitude;
+        const lon = position.coords.longitude;
+        locationDisplay.textContent = `Latitude: ${lat}, Longitude: ${lon}`;
+    }
+
+    // Function to handle errors
+    function showError(error) {
+        switch(error.code) {
+            case error.PERMISSION_DENIED:
+                locationDisplay.textContent = "User  denied the request for Geolocation.";
+                break;
+            case error.POSITION_UNAVAILABLE:
+                locationDisplay.textContent = "Location information is unavailable.";
+                break;
+            case error.TIMEOUT:
+                locationDisplay.textContent = "The request to get user location timed out.";
+                break;
+            case error.UNKNOWN_ERROR:
+                locationDisplay.textContent = "An unknown error occurred.";
+                break;
+        }
+    }
+
+    // Event listener for the toggle switch
     locationSharingToggle.addEventListener('change', function() {
         if (this.checked) {
-            console.log('Location sharing is ON');
-            // Add your logic to enable location sharing
-        } else {
-            console.log('Location sharing is OFF');
-            // Add your logic to disable location sharing
-        }
-    });
-});
+            getLocationBtn
