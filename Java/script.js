@@ -80,8 +80,27 @@ document.addEventListener('DOMContentLoaded', function() {
                 break;
         }
     }
+// Event listener for the location sharing toggle switch
+locationSharingToggle.addEventListener('change', toggleLocationSharing);
 
-    // Event listener for the toggle switch
-    locationSharingToggle.addEventListener('change', function() {
-        if (this.checked) {
-            getLocationBtn
+function toggleLocationSharing() {
+    this.checked ? activateLocationSharing() : deactivateLocationSharing();
+}
+
+function activateLocationSharing() {
+    // Logic to activate location sharing
+    showGetLocationButton();
+}
+
+function deactivateLocationSharing() {
+    // Logic to deactivate location sharing
+    hideGetLocationButton();
+}
+
+function showGetLocationButton() {
+    getLocationBtn.style.display = 'block'; // Show the button
+}
+
+function hideGetLocationButton() {
+    getLocationBtn.style.display = 'none'; // Hide the button
+}
